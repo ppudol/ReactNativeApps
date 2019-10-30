@@ -6,7 +6,7 @@ import {
   TextInput,
   KeyboardAvoidingView,
   Header
-} from "react-native";
+} from "react-native"; 
 import MyButton from "./Button";
 
 class loginScreen extends Component {
@@ -75,24 +75,49 @@ class loginScreen extends Component {
           style={{
             flex: 2,
             backgroundColor: "#ffffff",
-            justifyContent: "center"
+            justifyContent: "flex-start",
+            paddingLeft: 10,
+            paddingRight: 10  
           }}
         >
+        <View style={{
+         
+        }}>
+          <Text>username</Text>
           <TextInput
             style={{ height: 40 }}
-            placeholder="username"
+            //placeholder="username"
             onChangeText={username => this.setState({ username })}
             value={this.state.username}
+            style={{
+              borderBottomColor: "#005b9f",
+              borderBottomWidth: 2
+            }}
           />
+        </View>
+        
+       <View style={{
+         
+       }}>
+            <Text>username</Text>
           <TextInput
             style={{ height: 40 }}
-            placeholder="password"
+            //placeholder="password"
             onChangeText={password => this.setState({ password })}
             value={this.state.password}
+            style={{
+              borderBottomColor: "#005b9f",
+              borderBottomWidth: 2
+            }}
           />
+       </View>
+        
+         
+         
           <MyButton
             btTitle="REGISTER"
             btPress={() => this.checkIfUsersExists()}
+           
           />
         </View>
       </KeyboardAvoidingView>
