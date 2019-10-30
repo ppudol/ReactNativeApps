@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, Button, FlatList, Image } from "react-native";
 import MyButton from "./Button";
+import config from "./Settings";
 
 class usersScreen extends Component {
   static navigationOptions = {
@@ -28,16 +29,19 @@ class usersScreen extends Component {
   deleteUser(index) {
     console.log(index);
     console.log("łączenie z serwerem");
-    return fetch("http://192.168.1.159:3000/deleteUser", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        index: index
-      })
-    })
+    return fetch(
+      "http://" + config.ipAddress + ":" + config.port + "/deleteUser",
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          index: index
+        })
+      }
+    )
       .then(response => response.json())
       .then(responseJson => {
         if (responseJson.response == "deleted") {
@@ -78,7 +82,7 @@ class usersScreen extends Component {
                 style={{ width: 50, height: 50 }}
                 source={require("./user.png")}
               />
-              <Text>
+              <Text style={{ width: 200 }}>
                 {item.index}:{item.key}
               </Text>
               <MyButton

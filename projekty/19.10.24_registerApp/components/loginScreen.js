@@ -6,8 +6,9 @@ import {
   TextInput,
   KeyboardAvoidingView,
   Header
-} from "react-native"; 
+} from "react-native";
 import MyButton from "./Button";
+import config from "./Settings";
 
 class loginScreen extends Component {
   static navigationOptions = {
@@ -21,17 +22,20 @@ class loginScreen extends Component {
   checkIfUsersExists() {
     this.setState({ username: "", password: "" });
     console.log("łączenie z serwerem");
-    return fetch("http://192.168.1.159:3000/addUser", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        username: this.state.username,
-        password: this.state.password
-      })
-    })
+    return fetch(
+      "http://" + config.ipAddress + ":" + config.port + "/addUser",
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          username: this.state.username,
+          password: this.state.password
+        })
+      }
+    )
       .then(response => response.json())
       .then(responseJson => {
         if (responseJson.response == "login") {
@@ -77,47 +81,42 @@ class loginScreen extends Component {
             backgroundColor: "#ffffff",
             justifyContent: "flex-start",
             paddingLeft: 10,
-            paddingRight: 10  
+            paddingRight: 10,
+            paddingTop: 10
           }}
         >
-        <View style={{
-         
-        }}>
-          <Text>username</Text>
-          <TextInput
-            style={{ height: 40 }}
-            //placeholder="username"
-            onChangeText={username => this.setState({ username })}
-            value={this.state.username}
-            style={{
-              borderBottomColor: "#005b9f",
-              borderBottomWidth: 2
-            }}
-          />
-        </View>
-        
-       <View style={{
-         
-       }}>
+          <View>
             <Text>username</Text>
-          <TextInput
-            style={{ height: 40 }}
-            //placeholder="password"
-            onChangeText={password => this.setState({ password })}
-            value={this.state.password}
-            style={{
-              borderBottomColor: "#005b9f",
-              borderBottomWidth: 2
-            }}
-          />
-       </View>
-        
-         
-         
+            <TextInput
+              style={{ height: 40 }}
+              //placeholder="username"
+              onChangeText={username => this.setState({ username })}
+              value={this.state.username}
+              style={{
+                borderBottomColor: "#005b9f",
+                borderBottomWidth: 2
+              }}
+            />
+          </View>
+
+          <View>
+            <Text>password</Text>
+            <TextInput
+              style={{ height: 40 }}
+              //placeholder="password"
+              onChangeText={password => this.setState({ password })}
+              value={this.state.password}
+              style={{
+                borderBottomColor: "#005b9f",
+                borderBottomWidth: 2
+              }}
+            />
+          </View>
+
           <MyButton
+            style={{}}
             btTitle="REGISTER"
             btPress={() => this.checkIfUsersExists()}
-           
           />
         </View>
       </KeyboardAvoidingView>
