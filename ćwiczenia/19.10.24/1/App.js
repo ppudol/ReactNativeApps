@@ -1,26 +1,12 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { createStackNavigator, createAppContainer } from "react-navigation";
+import Screen1 from "./components/Screen1";
+import Screen2 from "./components/Screen2";
 
-import Header from "./components/Header";
-import Content from "./components/Content";
-import Footer from "./components/Footer";
-
-export default class App extends React.Component {
-  render() {
-    console.log("App"); // tą konsolę zobacz w przeglądarce
-    return (
-      <View style={styles.container}>
-        <Header />
-        <Content />
-        <Footer />
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#ffff00"
-  }
+const Root = createStackNavigator({
+  s1: { screen: Screen1 },
+  s2: { screen: Screen2 }
 });
+
+const App = createAppContainer(Root);
+
+export default App;
