@@ -1,10 +1,33 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { View, Text, Button, FlatList } from "react-native";
+import { View, Text, Button, FlatList, TouchableOpacity } from "react-native";
 
 class MyButton extends Component {
   render() {
-    return <Button title={this.props.btTitle} onPress={this.props.btPress} />;
+    return (
+      <TouchableOpacity
+        onPress={this.props.btPress}
+        style={{
+          height: 50,
+          justifyContent: "center",
+          alignContent: "center",
+          alignItems: "center",
+          backgroundColor: "#006978",
+          margin: 20
+        }}
+      >
+        <Text
+          style={{
+            color: "#ffffff",
+            fontWeight: "bold",
+            paddingLeft: 20,
+            paddingRight: 20
+          }}
+        >
+          {this.props.btTitle}
+        </Text>
+      </TouchableOpacity>
+    );
   }
 }
 

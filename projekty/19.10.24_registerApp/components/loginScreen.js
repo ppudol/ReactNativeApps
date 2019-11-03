@@ -85,7 +85,7 @@ class loginScreen extends Component {
             paddingTop: 10
           }}
         >
-          <View>
+          <View style={{ flex: 1 }}>
             <Text>username</Text>
             <TextInput
               style={{ height: 40 }}
@@ -99,7 +99,7 @@ class loginScreen extends Component {
             />
           </View>
 
-          <View>
+          <View style={{ flex: 1 }}>
             <Text>password</Text>
             <TextInput
               style={{ height: 40 }}
@@ -112,13 +112,14 @@ class loginScreen extends Component {
               }}
             />
           </View>
-
+          <View style={{ height: 10 }}></View>
           <MyButton
             style={{}}
             btTitle="REGISTER"
             btPress={() => this.checkIfUsersExists()}
           />
         </View>
+        <View style={{ flex: 2 }}></View>
       </KeyboardAvoidingView>
 
       /* <Button
