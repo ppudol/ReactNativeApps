@@ -1,11 +1,12 @@
 var express = require("express");
 
 var app = express();
-var usersTab = [];
+
 app.use(express.json());
 
 const PORT = 3000;
 
+var usersTab = [];
 app.post("/addUser", function(req, res) {
   console.log(req.body.username);
   console.log("funkcja POST Z serwera");

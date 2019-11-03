@@ -13,7 +13,7 @@ class MyButton extends Component {
           justifyContent: "center",
           alignContent: "center",
           alignItems: "center",
-          backgroundColor: "#006978",
+          backgroundColor:this.props.btColor,
           margin: 20
         }}
       >
@@ -22,7 +22,8 @@ class MyButton extends Component {
             color: "#ffffff",
             fontWeight: "bold",
             paddingLeft: 20,
-            paddingRight: 20
+            paddingRight: 20,
+            
           }}
         >
           {this.props.btTitle}
@@ -35,7 +36,11 @@ class MyButton extends Component {
 MyButton.propTypes = {
   btTitle: PropTypes.string.isRequired,
   btPress: PropTypes.func.isRequired,
-  btWidth: PropTypes.string.isRequired
+  btWidth: PropTypes.string.isRequired,
+  btColor: PropTypes.string.isRequired
 };
+MyButton.defaultProps = {
+  btColor: "#0096a5"
+}
 
 export default MyButton;
