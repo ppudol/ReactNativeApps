@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, ActivityIndicator } from "react-native";
 import firebase from "firebase";
+import { ToastAndroid } from "react-native";
 
 var firebaseConfig = {
   apiKey: "AIzaSyC19EIwq4iDWPBC-eiNiwdmVN3yjJodzIM",
@@ -25,7 +26,14 @@ class loadingScreen extends Component {
     firebase.auth().onAuthStateChanged(user => {
       try {
         alert(JSON.stringify("logged user email: " + user.email));
-        this.props.navigation.navigate("s3");
+        //console.log(JSON.stringify(user));
+        ToastAndroid.showWithGravity(
+          "zalogowano" + user.email,
+          ToastAndroid.SHORT,
+          ToastAndroid.CENTER
+        );
+
+        this.props.navigation.navigate("s5");
       } catch {
         this.props.navigation.navigate("s2");
       }

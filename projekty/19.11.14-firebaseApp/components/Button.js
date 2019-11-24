@@ -8,13 +8,13 @@ class MyButton extends Component {
       <TouchableOpacity
         onPress={this.props.btPress}
         style={{
-          height: 50,
+          height: this.props.btHeight,
           width: this.props.btWidth,
           justifyContent: "center",
           alignContent: "center",
           alignItems: "center",
           backgroundColor: this.props.btColor,
-          margin: 20,
+          margin: 10,
           borderRadius: 2
         }}
       >
@@ -38,10 +38,12 @@ MyButton.propTypes = {
   btTitle: PropTypes.string.isRequired,
   btPress: PropTypes.func.isRequired,
   btWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  btColor: PropTypes.string.isRequired
+  btColor: PropTypes.string.isRequired,
+  btHeight: PropTypes.number.isRequired
 };
 MyButton.defaultProps = {
-  btColor: "#ff5722"
+  btColor: "#ff5722",
+  btHeight: 50
 };
 
 export default MyButton;
