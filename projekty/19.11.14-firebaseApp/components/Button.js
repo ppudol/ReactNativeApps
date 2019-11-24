@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { View, Text, Button, FlatList, TouchableOpacity } from "react-native";
+import { Text, TouchableOpacity } from "react-native";
 
 class MyButton extends Component {
   render() {
@@ -13,8 +13,9 @@ class MyButton extends Component {
           justifyContent: "center",
           alignContent: "center",
           alignItems: "center",
-          backgroundColor:this.props.btColor,
-          margin: 20
+          backgroundColor: this.props.btColor,
+          margin: 20,
+          borderRadius: 2
         }}
       >
         <Text
@@ -23,7 +24,7 @@ class MyButton extends Component {
             fontWeight: "bold",
             paddingLeft: 20,
             paddingRight: 20,
-            
+            textAlign: "center"
           }}
         >
           {this.props.btTitle}
@@ -36,11 +37,11 @@ class MyButton extends Component {
 MyButton.propTypes = {
   btTitle: PropTypes.string.isRequired,
   btPress: PropTypes.func.isRequired,
-  btWidth: PropTypes.string.isRequired,
+  btWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   btColor: PropTypes.string.isRequired
 };
 MyButton.defaultProps = {
-  btColor: "#0096a5"
-}
+  btColor: "#ff5722"
+};
 
 export default MyButton;
