@@ -92,7 +92,7 @@ class loginScreen extends Component {
         <CstButton
           btWidth={"30%"}
           btTitle="Nie masz konta?"
-          btPress={() => this.props.navigation.navigate("s2")}
+          btPress={() => this.props.navigation.navigate("s3")}
         />
       </KeyboardAvoidingView>
     );

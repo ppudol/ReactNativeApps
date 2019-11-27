@@ -25,7 +25,7 @@ class loadingScreen extends Component {
   componentDidMount = () => {
     firebase.auth().onAuthStateChanged(user => {
       try {
-        alert(JSON.stringify("logged user email: " + user.email));
+        //alert(JSON.stringify("logged user email: " + user.email));
         //console.log(JSON.stringify(user));
         ToastAndroid.showWithGravity(
           "zalogowano" + user.email,
@@ -33,7 +33,9 @@ class loadingScreen extends Component {
           ToastAndroid.CENTER
         );
 
-        this.props.navigation.navigate("s5");
+        this.props.navigation.navigate("s5", {
+          email: user.email
+        });
       } catch {
         this.props.navigation.navigate("s2");
       }
