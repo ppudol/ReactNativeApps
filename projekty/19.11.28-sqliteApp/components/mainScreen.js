@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { View, Text, KeyboardAvoidingView } from "react-native";
 import CstButton from "./Button";
 import Database from "./DatabaseOperations";
+import * as SQLite from "expo-sqlite";
 
 class mainScreen extends Component {
   static navigationOptions = {
@@ -26,15 +27,13 @@ class mainScreen extends Component {
               flex: 1,
               justifyContent: "center",
               alignItems: "center"
-            }}
-          >
+            }}>
             <Text
               style={{
                 fontSize: 70,
                 color: "#ffffff",
                 textAlign: "center"
-              }}
-            >
+              }}>
               Sqlite App
             </Text>
             <Text
@@ -42,17 +41,15 @@ class mainScreen extends Component {
                 fontSize: 20,
                 color: "#ffffff",
                 textAlign: "center"
-              }}
-            >
+              }}>
               Sqlite CRUD, animations, ring
             </Text>
           </View>
         </View>
         <View
-          style={{ flex: 2, justifyContent: "center", alignItems: "center" }}
-        >
+          style={{ flex: 2, justifyContent: "center", alignItems: "center" }}>
           <CstButton
-            btTitle="Start"
+            btTitle='Start'
             btWidth={"70%"}
             btPress={() => this.props.navigation.navigate("s2")}
           />

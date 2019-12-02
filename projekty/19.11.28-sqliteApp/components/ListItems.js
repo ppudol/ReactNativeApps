@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { View, Text } from "react-native";
-
+import ListItem from "./listItem";
 class ListItems extends Component {
   constructor(props) {
     super(props);
@@ -10,7 +10,11 @@ class ListItems extends Component {
   render() {
     return (
       <View>
-        <Text> ListItems </Text>
+        <ListItem />
+        <ListItem />
+        <ListItem />
+        <ListItem />
+        <ListItem />
       </View>
     );
   }

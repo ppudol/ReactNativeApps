@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 import { View, Text } from "react-native";
+
 import * as SQLite from "expo-sqlite";
-const db = SQLite.openDatabase("padol_przemyslaw_4ic.db"); // proszę o taki schemat nazywania swojej bazy danych
+//const db = SQLite.openDatabase("padol_przemyslaw_4ic.db"); // proszę o taki schemat nazywania swojej bazy danych
+const db = SQLite.openDatabase("nazwisko_imie_grupa.db"); // proszę o taki schemat nazywania swojej bazy danych
 
-class DatabaseOperations extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
+class DatabaseOperations {
   static createTable() {
     console.log("start dodawania");
     db.transaction(
@@ -18,8 +15,7 @@ class DatabaseOperations extends Component {
         );
       },
       err => console.log(JSON.stringify(err))
-    ),
-      () => console.log("dodano bazę danych");
+    );
   }
 
   static addData() {

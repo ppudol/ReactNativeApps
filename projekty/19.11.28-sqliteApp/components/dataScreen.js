@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { View, ScrollView } from "react-native";
+import { View, ScrollView, Dimensions } from "react-native";
 import ListItems from "./ListItems";
 import RoundButton from "./roundButton";
+import * as SQLite from "expo-sqlite";
 
 class dataScreen extends Component {
   static navigationOptions = {
@@ -25,15 +26,20 @@ class dataScreen extends Component {
   render() {
     return (
       <View style={{ flex: 1, backgroundColor: "#035ef9" }}>
-        <View style={{ flex: 9 }}>
+        <View style={{ flex: 1 }}>
           <ScrollView>
             <ListItems />
           </ScrollView>
         </View>
 
         <View
-          style={{ flex: 1.5, justifyContent: "center", alignItems: "center" }}
-        >
+          style={{
+            position: "absolute",
+            justifyContent: "center",
+            alignItems: "center",
+            bottom: 2,
+            left: (Dimensions.get("window").width - 130) / 2
+          }}>
           <RoundButton
             btWidth={120}
             btPress={() => this.props.navigation.navigate("s3")}
