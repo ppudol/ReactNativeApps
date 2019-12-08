@@ -9,11 +9,13 @@ import {
   TouchableOpacity
 } from "react-native";
 import { throwStatement } from "@babel/types";
+import Database from "./Database";
 
 class listItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      id: this.props.elementId,
       height: new Animated.Value(180), // początkowa wartość wysokości itema
       expanded: false, // zwinięty};
       switch: false,
@@ -27,6 +29,7 @@ class listItem extends Component {
     };
     this.toggle = this.toggle.bind(this);
     this.switchChange = this.switchChange.bind(this);
+    this.deleteItem = this.deleteItem.bind(this);
     this.toValue = 0;
   }
 
@@ -46,6 +49,13 @@ class listItem extends Component {
   switchChange() {
     console.log("switch change");
     this.setState({ switch: !this.state.switch });
+  }
+
+  deleteItem() {
+    console.log(this.props.elementId);
+    Database.remove(this.props.elementId);
+    this.props.refresh();
+    //console.log(this.state.id);
   }
 
   render() {
@@ -82,7 +92,7 @@ class listItem extends Component {
               "rgba(255,255,255,1)",
               true
             )}
-            onPress={() => console.log("pressed")}
+            onPress={this.deleteItem}
             style={{
               width: 20,
               height: 20

@@ -100,20 +100,21 @@ class galleryScreen extends Component {
             flexDirection: "row",
             justifyContent: "space-around",
             alignItems: "center"
-          }}>
+          }}
+        >
           <CstButton
             btWidth={"30%"}
-            btTitle='Grid/List'
+            btTitle="Grid/List"
             btPress={this.changeNumOfColumns}
           />
           <CstButton
             btWidth={"30%"}
-            btTitle='Open Camera'
+            btTitle="Open Camera"
             btPress={this.navigateToCamera}
           />
           <CstButton
             btWidth={"30%"}
-            btTitle='Remove Selected'
+            btTitle="Remove Selected"
             btPress={this.deletePhotos}
           />
         </View>

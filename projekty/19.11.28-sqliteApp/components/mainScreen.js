@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, KeyboardAvoidingView } from "react-native";
 import CstButton from "./Button";
-import Database from "./DatabaseOperations";
+import Database from "./Database";
 import * as SQLite from "expo-sqlite";
 
 class mainScreen extends Component {

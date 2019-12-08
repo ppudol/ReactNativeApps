@@ -1,0 +1,8 @@
+   <Animated.View
+              style={{
+              position: "absolute",
+                backgroundColor: "#000000",
+                opacity: this.state.fadeAnim,
+                width: Dimensions.get("window").width,
+                height: Dimensions.get("window").height
+              }}></Animated.View>

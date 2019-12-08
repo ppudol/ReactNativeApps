@@ -3,6 +3,7 @@ import { View, Text, KeyboardAvoidingView, Icon } from "react-native";
 import MyButton from "./Button";
 import * as Font from "expo-font";
 import * as Permissions from "expo-permissions";
+import RadioButton from "./radioButton";
 
 class mainScreen extends Component {
   static navigationOptions = {
@@ -37,14 +38,16 @@ class mainScreen extends Component {
                 flex: 1,
                 justifyContent: "center",
                 alignItems: "center"
-              }}>
+              }}
+            >
               <Text
                 style={{
                   fontFamily: "spaceMono",
                   fontSize: 70,
                   color: "#ffffff",
                   textAlign: "center"
-                }}>
+                }}
+              >
                 Camera App
               </Text>
               <Text
@@ -53,7 +56,8 @@ class mainScreen extends Component {
                   fontSize: 20,
                   color: "#ffffff",
                   textAlign: "center"
-                }}>
+                }}
+              >
                 show gallery pictures
               </Text>
               <Text
@@ -62,7 +66,8 @@ class mainScreen extends Component {
                   fontSize: 20,
                   color: "#ffffff",
                   textAlign: "center"
-                }}>
+                }}
+              >
                 take picture from camera
               </Text>
               <Text
@@ -71,7 +76,8 @@ class mainScreen extends Component {
                   fontSize: 20,
                   color: "#ffffff",
                   textAlign: "center"
-                }}>
+                }}
+              >
                 save photos on device
               </Text>
               <Text
@@ -80,16 +86,19 @@ class mainScreen extends Component {
                   fontSize: 20,
                   color: "#ffffff",
                   textAlign: "center"
-                }}>
+                }}
+              >
                 delete photos from device
               </Text>
+              <RadioButton />
             </View>
           ) : null}
         </View>
         <View
-          style={{ flex: 2, justifyContent: "center", alignItems: "center" }}>
+          style={{ flex: 2, justifyContent: "center", alignItems: "center" }}
+        >
           <MyButton
-            btTitle='Start'
+            btTitle="Start"
             btWidth={"70%"}
             btPress={() =>
               this.props.navigation.navigate("s2", {
